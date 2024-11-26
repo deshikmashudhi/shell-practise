@@ -8,7 +8,7 @@ N="\e[0m"
 
 create_user() {
     USERNAME=$1
-
+#check the user name and create the user if not available
     if id "$USERNAME" &>/dev/null;
     then
         echo -e " User $G $USERNAME $N already exists "
@@ -21,6 +21,7 @@ create_user() {
             echo -e "user $R $USERNAME $N not created"
         exit 1
         fi
+#provide sudo acces to the user
         sudo usermod -aG sudo "$USERNAME"
         if [ $? -eq 0 ]
         then
@@ -28,7 +29,7 @@ create_user() {
         else
             echo -e "user $R $USERNAME $N sudo acess not granted"
         fi
-        #create password for the create user
+#create password for the  user
          echo "$USERNAME:$PASSWORD" | sudo chpasswd
          if [ $? -eq 0 ]
          then 
@@ -39,7 +40,7 @@ create_user() {
         fi
     fi
 }
-
+#check the sudo acess
 validate_sudo_access()
 {
     USERNAME=$1
@@ -52,13 +53,10 @@ validate_sudo_access()
     fi
 }
 
-
-
-
 read -p "Enter the username to create:"  USERNAME
 read -sp "Enter the password for '$USERNAME': " PASSWORD  #sp declares that the user can create password securely
 
-# Call the function to create the user and give sudo access
+# Call the function to create the user and create password and give sudo access
 create_user "$USERNAME" "$PASSWORD"
 
 # Call the function to validate sudo access
