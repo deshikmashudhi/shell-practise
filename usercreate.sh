@@ -1,6 +1,6 @@
 #!/bin/bash
 #create user and give sudo access and validate it using functions
-commands in linux is user add 
+#commands in linux is user add 
 
 R="\e[31m"
 G="\e[32m"
