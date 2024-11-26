@@ -6,9 +6,9 @@ R="\e[31m"
 G="\e[32m" 
 N="\e[0m" 
 
-if [ "$(id-u)" -eq 0 ]
+if [ "$(id-u)" -eq 0 ];
 then
     echo -e "$G you have root access"
 else
-    echo -e "$R you dont have roor access"
+    echo -e "$R you dont have root access"
 fi
