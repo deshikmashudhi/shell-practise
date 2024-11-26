@@ -1,4 +1,5 @@
 #!/bin/bash
 A=10
-B=10
-echo -e "sum of $A and $B: $C"
+B=20
+SUM((A+B))
+echo -e "sum of two numbers is : $SUM"
