@@ -34,7 +34,7 @@ create_user() {
 validate_sudo_access()
 {
     USERNAME=$1
-    sudo -u "$USERNAME" sudo -l &>dev/null
+    sudo -u "$USERNAME" sudo -l &>/dev/null
     if [ $? -eq 0 ]
     then
        echo -e "User $G $USERNAME has sudo access"
