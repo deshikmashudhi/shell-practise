@@ -28,6 +28,15 @@ create_user() {
         else
             echo -e "user $R $USERNAME $N sudo acess not granted"
         fi
+        #create password for the create user
+         echo "$USERNAME:$PASSWORD" | sudo chpasswd
+         if [ $? -eq 0 ]
+         then 
+             echo -e "$R $USERNAME password updated sucesfull"
+        else
+             echo  -e "$G $USERNAME password updation failed"
+        exit 1
+        fi
     fi
 }
 
@@ -43,10 +52,14 @@ validate_sudo_access()
     fi
 }
 
+
+
+
 read -p "Enter the username to create:"  USERNAME
+read -sp "Enter the password for '$USERNAME': " PASSWORD  #sp declares that the user can create password securely
 
 # Call the function to create the user and give sudo access
-create_user "$USERNAME"
+create_user "$USERNAME" "$PASSWORD"
 
 # Call the function to validate sudo access
 validate_sudo_access "$USERNAME"
