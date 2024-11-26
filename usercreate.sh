@@ -32,9 +32,9 @@ create_user() {
          echo "$USERNAME:$PASSWORD" | sudo chpasswd
          if [ $? -eq 0 ]
          then 
-             echo -e "$R $USERNAME password updated sucesfull"
+             echo -e "$G $USERNAME password updated sucesfull"
         else
-             echo  -e "$G $USERNAME password updation failed"
+             echo  -e "$R $USERNAME password updation failed"
         exit 1
         fi
     fi
