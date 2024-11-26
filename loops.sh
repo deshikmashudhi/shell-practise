@@ -8,7 +8,7 @@ N="\e[0m"
 
 if [ "$(id -u)" -eq 0 ]
 then
-    echo -e "$G you have root access"
+    echo -e "$G you have root access $N "
 else
-    echo -e "$R you dont have root access"
+    echo -e "$R you dont have root access $N "
 fi
