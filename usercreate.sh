@@ -6,14 +6,6 @@ R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 
-read -p "Enter the username to create:"  USERNAME
-
-# Call the function to create the user and give sudo access
-create_user "$USERNAME"
-
-# Call the function to validate sudo access
-validate_sudo_access "$USERNAME"
-
 create_user() {
     USERNAME=$1
 
@@ -50,3 +42,11 @@ valiate_sudo_access()
       echo -e "User $R $USERNAME has no sudo access try to get sudo access"
     fi
 }
+
+read -p "Enter the username to create:"  USERNAME
+
+# Call the function to create the user and give sudo access
+create_user "$USERNAME"
+
+# Call the function to validate sudo access
+validate_sudo_access "$USERNAME"
