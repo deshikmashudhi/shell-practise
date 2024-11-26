@@ -31,7 +31,7 @@ create_user() {
     fi
 }
 
-valiate_sudo_access()
+validate_sudo_access()
 {
     USERNAME=$1
     sudo -u "$USERNAME" sudo -l &>dev/null
