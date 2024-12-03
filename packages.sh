@@ -16,7 +16,7 @@ fi
 
 for softwares in $@
 do
-   if which $doftwares $> /dev/null
+   if which $softwares $> /dev/null
    then
        echo "Already $softwares is installed"
    else
