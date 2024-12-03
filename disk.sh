@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "check the disk uage in linux system"
-disk_size=$(df -h|grep "/dev/xvda16" |awk '{print $5}'|cut -d '%' -f1)
+disk_size=$(df -h|grep "/dev/xvda16" |awk '{print $5}'|cut -d '%' -f 1)
 echo "$disk_size  disk is full"
 if [ $disk_size -gt 10 ];
 then
