@@ -18,5 +18,16 @@ for softwares in $@
 do
    if which $doftwares $> /dev/null
    then
-       echo "Already $software is installed"
+       echo "Already $softwares is installed"
+   else
+       echo "installing software $softwares....."
+       sudo apt install $softwares -y &> /dev/null
+       if [ $? -ne 0 ];
+       then
+           echo "succesfully installed $softwares packages" 
+       else
+           echo "unable to install $software packages"
+        fi
+    fi
+done
        
