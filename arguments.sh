@@ -4,7 +4,8 @@ echo "this is my shell script: $0"
 if [ $# -eq 0 ];
 then
    echo "please pass one qrgument"
-   exit 1
+else
+   echo "arguments passed are $#"
 fi
 echo "this is first argument passed to my script: $1"
 echo "this is second argument passed to my script: $2"
