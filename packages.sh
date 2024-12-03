@@ -2,31 +2,40 @@
 #Author: deshik
 #installing multiple packages
 
+#!/bin/bash
+# Author: Deshik
+# Installing multiple packages
+
+# Check if at least one argument (software name) is provided
 if [ $# -eq 0 ]
 then
-  echo "Usage: please provide software names as command line"
+  echo "Usage: please provide software names as command line arguments"
   exit 1
 fi
 
+# Check if the script is being run as root or with sudo access
 if [ $(id -u) -ne 0 ]
-then 
-   echo "please run from the root use or wih sudo access"
+then
+   echo "Please run this script as root or with sudo access"
    exit 2
 fi
 
-for softwares in $@
+# Loop through each software passed as argument
+for software in "$@"
 do
-   if which $softwares $> /dev/null
+   # Check if the software is already installed
+   if which $software > /dev/null
    then
-       echo "Already $softwares is installed"
+       echo "$software is already installed."
    else
-       echo "installing software $softwares....."
-       sudo apt install $softwares -y &> /dev/null
-       if [ $? -ne 0 ];
-       then
-           echo "succesfully installed $softwares packages" 
+       echo "Installing software $software..."
+       sudo apt install $software -y &> /tmp/$software-install.log
+
+       # Check if installation was successful
+       if [ $? -eq 0 ]; then
+           echo "Successfully installed $software."
        else
-            echo "unable to install $sofwares packages"
-        fi
-    fi
+           echo "Failed to install $software. Check the log file /tmp/$software-install.log for details."
+       fi
+   fi
 done
