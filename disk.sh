@@ -6,5 +6,5 @@ if [ $disk_size -gt 10 ];
 then
    echo "disk utilization is more than 10% free the space"
 else
-   echo "space is available"
+    echo "space is available"
 fi
