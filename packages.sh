@@ -26,7 +26,7 @@ do
        then
            echo "succesfully installed $softwares packages" 
        else
-           echo "unable to install $software packages"
+            echo "unable to install $sofwares packages"
         fi
     fi
 done
