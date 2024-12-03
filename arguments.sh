@@ -5,10 +5,8 @@ if [ $# -eq 0 ];
 then
    echo "please pass one qrgument"
 else
-   echo "arguments passed are $#"
+  echo "this is first argument passed to my script: $1"
+  echo "this is second argument passed to my script: $2"
+  echo "this is third argument passed to my script: $3"
+  echo "arguments passed $#"
 fi
-echo "this is first argument passed to my script: $1"
-echo "this is second argument passed to my script: $2"
-echo "this is third argument passed to my script: $3"
-
-
