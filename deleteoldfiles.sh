@@ -7,5 +7,6 @@ find $path -mtime +30 -delete
 if [ $? -eq 0 ]
 then
   echo "Files are deleted successfull"
-  exit 1
+else
+  echo "there is no older file more than 30 days"
 fi
